@@ -151,371 +151,371 @@ FieldPtr KmlFactory::CreateFieldById(KmlDomType type_id) const {
 }
 
 AliasPtr KmlFactory::CreateAlias() const {
-  return AliasPtr();
+  return AliasPtr(new Alias());
 }
 
 AtomAuthorPtr KmlFactory::CreateAtomAuthor() const {
-  return AtomAuthorPtr();
+  return AtomAuthorPtr(new AtomAuthor());
 }
 
 AtomCategoryPtr KmlFactory::CreateAtomCategory() const {
-  return AtomCategoryPtr();
+  return AtomCategoryPtr(new AtomCategory());
 }
 
 AtomContentPtr KmlFactory::CreateAtomContent() const {
-  return AtomContentPtr();
+  return AtomContentPtr(new AtomContent());
 }
 
 AtomEntryPtr KmlFactory::CreateAtomEntry() const {
-  return AtomEntryPtr();
+  return AtomEntryPtr(new AtomEntry());
 }
 
 AtomFeedPtr KmlFactory::CreateAtomFeed() const {
-  AtomFeedPtr();
+  return AtomFeedPtr(new AtomFeed());
 }
 
 AtomLinkPtr KmlFactory::CreateAtomLink() const {
-  AtomLinkPtr();
+    return AtomLinkPtr(new AtomLink());
 }
 
 BalloonStylePtr KmlFactory::CreateBalloonStyle() const {
-  BalloonStylePtr();
+    return BalloonStylePtr(new BalloonStyle());
 }
 
 CameraPtr KmlFactory::CreateCamera() const {
-  CameraPtr();
+    return CameraPtr(new Camera());
 }
 
 ChangePtr KmlFactory::CreateChange() const {
-  ChangePtr();
+    return ChangePtr(new Change());
 }
 
 CreatePtr KmlFactory::CreateCreate() const {
-  CreatePtr();
+    return CreatePtr(new Create());
 }
 
 DataPtr KmlFactory::CreateData() const {
-  DataPtr();
+    return DataPtr(new Data());
 }
 
 DeletePtr KmlFactory::CreateDelete() const {
-  DeletePtr();
+    return DeletePtr(new Delete());
 }
 
 DocumentPtr KmlFactory::CreateDocument() const {
-  DocumentPtr();
+    return DocumentPtr(new Document());
 }
 
 ExtendedDataPtr KmlFactory::CreateExtendedData() const {
-  ExtendedDataPtr();
+    return ExtendedDataPtr(new ExtendedData());
 }
 
 FolderPtr KmlFactory::CreateFolder() const {
-  FolderPtr();
+    return FolderPtr(new Folder());
 }
 
 GroundOverlayPtr KmlFactory::CreateGroundOverlay() const {
-  GroundOverlayPtr();
+    return GroundOverlayPtr(new GroundOverlay());
 }
 
 HotSpotPtr KmlFactory::CreateHotSpot() const {
-  HotSpotPtr();
+    return HotSpotPtr(new HotSpot());
 }
 
 IconPtr KmlFactory::CreateIcon() const {
-  IconPtr();
+    return IconPtr(new Icon());
 }
 
 IconStylePtr KmlFactory::CreateIconStyle() const {
-  IconStylePtr();
+    return IconStylePtr(new IconStyle());
 }
 
 IconStyleIconPtr KmlFactory::CreateIconStyleIcon() const {
-  IconStyleIconPtr();
+    return IconStyleIconPtr(new IconStyleIcon());
 }
 
 ImagePyramidPtr KmlFactory::CreateImagePyramid() const {
-  ImagePyramidPtr();
+    return ImagePyramidPtr(new ImagePyramid());
 }
 
 InnerBoundaryIsPtr KmlFactory::CreateInnerBoundaryIs() const {
-  InnerBoundaryIsPtr();
+    return InnerBoundaryIsPtr(new InnerBoundaryIs());
 }
 
 ItemIconPtr KmlFactory::CreateItemIcon() const {
-  ItemIconPtr();
+    return ItemIconPtr(new ItemIcon());
 }
 
 KmlPtr KmlFactory::CreateKml() const {
-  KmlPtr();
+    return KmlPtr(new Kml());
 }
 
 LabelStylePtr KmlFactory::CreateLabelStyle() const {
-  LabelStylePtr();
+    return LabelStylePtr(new LabelStyle());
 }
 
 LatLonBoxPtr KmlFactory::CreateLatLonBox() const {
-  LatLonBoxPtr();
+    return LatLonBoxPtr(new LatLonBox());
 }
 
 LatLonAltBoxPtr KmlFactory::CreateLatLonAltBox() const {
-  LatLonAltBoxPtr();
+    return LatLonAltBoxPtr(new LatLonAltBox());
 }
 
 LinearRingPtr KmlFactory::CreateLinearRing() const {
-  LinearRingPtr();
+    return LinearRingPtr(new LinearRing());
 }
 
 LineStringPtr KmlFactory::CreateLineString() const {
-  LineStringPtr();
+    return LineStringPtr(new LineString());
 }
 
 LineStylePtr KmlFactory::CreateLineStyle() const {
-  LineStylePtr();
+    return LineStylePtr(new LineStyle());
 }
 
 LinkPtr KmlFactory::CreateLink() const {
-  LinkPtr();
+    return LinkPtr(new Link());
 }
 
 LinkSnippetPtr KmlFactory::CreateLinkSnippet() const {
-  LinkSnippetPtr();
+    return LinkSnippetPtr(new LinkSnippet());
 }
 
 ListStylePtr KmlFactory::CreateListStyle() const {
-  ListStylePtr();
+    return ListStylePtr(new ListStyle());
 }
 
 LocationPtr KmlFactory::CreateLocation() const {
-  LocationPtr();
+    return LocationPtr(new Location());
 }
 
 LodPtr KmlFactory::CreateLod() const {
-  LodPtr();
+    return LodPtr(new Lod());
 }
 
 LookAtPtr KmlFactory::CreateLookAt() const {
-  LookAtPtr();
+    return LookAtPtr(new LookAt());
 }
 
 MetadataPtr KmlFactory::CreateMetadata() const {
-  MetadataPtr();
+    return MetadataPtr(new Metadata());
 }
 
 ModelPtr KmlFactory::CreateModel() const {
-  ModelPtr();
+    return ModelPtr(new Model());
 }
 
 MultiGeometryPtr KmlFactory::CreateMultiGeometry() const {
-  MultiGeometryPtr();
+    return MultiGeometryPtr(new MultiGeometry());
 }
 
 NetworkLinkPtr KmlFactory::CreateNetworkLink() const {
-  NetworkLinkPtr();
+    return NetworkLinkPtr(new NetworkLink());
 }
 
 NetworkLinkControlPtr KmlFactory::CreateNetworkLinkControl() const {
-  NetworkLinkControlPtr();
+    return NetworkLinkControlPtr(new NetworkLinkControl());
 }
 
 OrientationPtr KmlFactory::CreateOrientation() const {
-  OrientationPtr();
+    return OrientationPtr(new Orientation());
 }
 
 OuterBoundaryIsPtr KmlFactory::CreateOuterBoundaryIs() const {
-  OuterBoundaryIsPtr();
+    return OuterBoundaryIsPtr(new OuterBoundaryIs());
 }
 
 OverlayXYPtr KmlFactory::CreateOverlayXY() const {
-  OverlayXYPtr();
+    return OverlayXYPtr(new OverlayXY());
 }
 
 PairPtr KmlFactory::CreatePair() const {
-  PairPtr();
+    return PairPtr(new Pair());
 }
 
 PhotoOverlayPtr KmlFactory::CreatePhotoOverlay() const {
-  PhotoOverlayPtr();
+    return PhotoOverlayPtr(new PhotoOverlay());
 }
 
 PlacemarkPtr KmlFactory::CreatePlacemark() const {
-  PlacemarkPtr();
+    return PlacemarkPtr(new Placemark());
 }
 
 PointPtr KmlFactory::CreatePoint() const {
-  PointPtr();
+    return PointPtr(new Point());
 }
 
 PolygonPtr KmlFactory::CreatePolygon() const {
-  PolygonPtr();
+    return PolygonPtr(new Polygon());
 }
 
 PolyStylePtr KmlFactory::CreatePolyStyle() const {
-  PolyStylePtr();
+    return PolyStylePtr(new PolyStyle());
 }
 
 RegionPtr KmlFactory::CreateRegion() const {
-  RegionPtr();
+    return  RegionPtr(new Region());
 }
 
 ResourceMapPtr KmlFactory::CreateResourceMap() const {
-  ResourceMapPtr();
+    return ResourceMapPtr(new ResourceMap());
 }
 
 RotationXYPtr KmlFactory::CreateRotationXY() const {
-  RotationXYPtr();
+    return RotationXYPtr(new RotationXY());
 }
 
 ScalePtr KmlFactory::CreateScale() const {
-  ScalePtr();
+    return ScalePtr(new Scale());
 }
 
 ScreenOverlayPtr KmlFactory::CreateScreenOverlay() const {
-  ScreenOverlayPtr();
+    return ScreenOverlayPtr(new ScreenOverlay());
 }
 
 CoordinatesPtr KmlFactory::CreateCoordinates() const {
-  CoordinatesPtr();
+    return CoordinatesPtr(new Coordinates());
 }
 
 ScreenXYPtr KmlFactory::CreateScreenXY() const {
-  ScreenXYPtr();
+    return ScreenXYPtr(new ScreenXY());
 }
 
 SchemaPtr KmlFactory::CreateSchema() const {
-  SchemaPtr();
+    return SchemaPtr(new Schema());
 }
 
 SchemaDataPtr KmlFactory::CreateSchemaData() const {
-  SchemaDataPtr();
+    return SchemaDataPtr(new SchemaData());
 }
 
 UpdatePtr KmlFactory::CreateUpdate() const {
-  UpdatePtr();
+    return UpdatePtr(new Update());
 }
 
 UrlPtr KmlFactory::CreateUrl() const {
-  UrlPtr();
+    return UrlPtr(new Url());
 }
 
 SimpleDataPtr KmlFactory::CreateSimpleData() const {
-  SimpleDataPtr();
+    return SimpleDataPtr(new SimpleData());
 }
 
 SimpleFieldPtr KmlFactory::CreateSimpleField() const {
-  SimpleFieldPtr();
+    return SimpleFieldPtr(new SimpleField());
 }
 
 SizePtr KmlFactory::CreateSize() const {
-  SizePtr();
+    return SizePtr(new Size());
 }
 
 SnippetPtr KmlFactory::CreateSnippet() const {
-  SnippetPtr();
+    return SnippetPtr(new Snippet());
 }
 
 StylePtr KmlFactory::CreateStyle() const {
-  StylePtr();
+    return StylePtr(new Style());
 }
 
 StyleMapPtr KmlFactory::CreateStyleMap() const {
-  StyleMapPtr();
+    return StyleMapPtr(new StyleMap());
 }
 
 TimeSpanPtr KmlFactory::CreateTimeSpan() const {
-  TimeSpanPtr();
+    return TimeSpanPtr(new TimeSpan());
 }
 
 TimeStampPtr KmlFactory::CreateTimeStamp() const {
-  TimeStampPtr();
+    return TimeStampPtr(new TimeStamp());
 }
 
 ViewVolumePtr KmlFactory::CreateViewVolume() const {
-  ViewVolumePtr();
+    return ViewVolumePtr(new ViewVolume());
 }
 
 XalAddressDetailsPtr KmlFactory::CreateXalAddressDetails() const {
-  XalAddressDetailsPtr();
+    return XalAddressDetailsPtr(new XalAddressDetails());
 }
 
 XalAdministrativeAreaPtr KmlFactory::CreateXalAdministrativeArea() const {
-  XalAdministrativeAreaPtr();
+    return XalAdministrativeAreaPtr(new XalAdministrativeArea());
 }
 
 XalCountryPtr KmlFactory::CreateXalCountry() const {
-  XalCountryPtr();
+    return XalCountryPtr(new XalCountry());
 }
 
 XalLocalityPtr KmlFactory::CreateXalLocality() const {
-  XalLocalityPtr();
+    return XalLocalityPtr(new XalLocality());
 }
 
 XalPostalCodePtr KmlFactory::CreateXalPostalCode() const {
-  XalPostalCodePtr();
+    return XalPostalCodePtr(new XalPostalCode());
 }
 
 XalSubAdministrativeAreaPtr KmlFactory::CreateXalSubAdministrativeArea() const {
-  XalSubAdministrativeAreaPtr();
+    return XalSubAdministrativeAreaPtr(new XalSubAdministrativeArea());
 }
 
 XalThoroughfarePtr KmlFactory::CreateXalThoroughfare() const {
-  XalThoroughfarePtr();
+    return XalThoroughfarePtr(new XalThoroughfare());
 }
 
 GxAnimatedUpdatePtr KmlFactory::CreateGxAnimatedUpdate() const {
-  GxAnimatedUpdatePtr();
+    return GxAnimatedUpdatePtr(new GxAnimatedUpdate());
 }
 
 GxFlyToPtr KmlFactory::CreateGxFlyTo() const {
-  GxFlyToPtr();
+    return GxFlyToPtr(new GxFlyTo());
 }
 
 GxLatLonQuadPtr KmlFactory::CreateGxLatLonQuad() const {
-  GxLatLonQuadPtr();
+    return GxLatLonQuadPtr(new GxLatLonQuad());
 }
 
 GxMultiTrackPtr KmlFactory::CreateGxMultiTrack() const {
-  GxMultiTrackPtr();
+    return GxMultiTrackPtr(new GxMultiTrack());
 }
 
 GxPlaylistPtr KmlFactory::CreateGxPlaylist() const {
-  GxPlaylistPtr();
+    return GxPlaylistPtr(new GxPlaylist());
 }
 
 GxSimpleArrayDataPtr KmlFactory::CreateGxSimpleArrayData() const {
-  GxSimpleArrayDataPtr();
+    return GxSimpleArrayDataPtr(new GxSimpleArrayData());
 }
 
 GxSimpleArrayFieldPtr KmlFactory::CreateGxSimpleArrayField() const {
-  GxSimpleArrayFieldPtr();
+    return GxSimpleArrayFieldPtr(new GxSimpleArrayField());
 }
 
 GxSoundCuePtr KmlFactory::CreateGxSoundCue() const {
-  GxSoundCuePtr();
+    return GxSoundCuePtr(new GxSoundCue());
 }
 
 GxTimeSpanPtr KmlFactory::CreateGxTimeSpan() const {
-  GxTimeSpanPtr();
+    return GxTimeSpanPtr(new GxTimeSpan());
 }
 
 GxTimeStampPtr KmlFactory::CreateGxTimeStamp() const {
-  GxTimeStampPtr();
+    return GxTimeStampPtr(new GxTimeStamp());
 }
 
 GxTourPtr KmlFactory::CreateGxTour() const {
-  GxTourPtr();
+    return GxTourPtr(new GxTour());
 }
 
 GxTourControlPtr KmlFactory::CreateGxTourControl() const {
-  GxTourControlPtr();
+    return GxTourControlPtr(new GxTourControl());
 }
 
 GxTrackPtr KmlFactory::CreateGxTrack() const {
-  GxTrackPtr();
+    return GxTrackPtr(new GxTrack());
 }
 
 GxWaitPtr KmlFactory::CreateGxWait() const {
-  GxWaitPtr();
+    return GxWaitPtr(new GxWait());
 }
 
 }  // namespace kmldom
