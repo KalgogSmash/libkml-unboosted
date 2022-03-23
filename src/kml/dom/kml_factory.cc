@@ -146,376 +146,376 @@ ElementPtr KmlFactory::CreateElementFromName(const string& element_name) const {
       static_cast<KmlDomType>(Xsd::GetSchema()->ElementId(element_name)));
 }
 
-Field* KmlFactory::CreateFieldById(KmlDomType type_id) const {
-  return new Field(type_id);
+FieldPtr KmlFactory::CreateFieldById(KmlDomType type_id) const {
+    return FieldPtr(new Field(type_id));
 }
 
-Alias* KmlFactory::CreateAlias() const {
-  return new Alias();
+AliasPtr KmlFactory::CreateAlias() const {
+  return AliasPtr();
 }
 
-AtomAuthor* KmlFactory::CreateAtomAuthor() const {
-  return new AtomAuthor();
+AtomAuthorPtr KmlFactory::CreateAtomAuthor() const {
+  return AtomAuthorPtr();
 }
 
-AtomCategory* KmlFactory::CreateAtomCategory() const {
-  return new AtomCategory();
+AtomCategoryPtr KmlFactory::CreateAtomCategory() const {
+  return AtomCategoryPtr();
 }
 
-AtomContent* KmlFactory::CreateAtomContent() const {
-  return new AtomContent();
+AtomContentPtr KmlFactory::CreateAtomContent() const {
+  return AtomContentPtr();
 }
 
-AtomEntry* KmlFactory::CreateAtomEntry() const {
-  return new AtomEntry();
+AtomEntryPtr KmlFactory::CreateAtomEntry() const {
+  return AtomEntryPtr();
 }
 
-AtomFeed* KmlFactory::CreateAtomFeed() const {
-  return new AtomFeed();
+AtomFeedPtr KmlFactory::CreateAtomFeed() const {
+  AtomFeedPtr();
 }
 
-AtomLink* KmlFactory::CreateAtomLink() const {
-  return new AtomLink();
+AtomLinkPtr KmlFactory::CreateAtomLink() const {
+  AtomLinkPtr();
 }
 
-BalloonStyle* KmlFactory::CreateBalloonStyle() const {
-  return new BalloonStyle();
+BalloonStylePtr KmlFactory::CreateBalloonStyle() const {
+  BalloonStylePtr();
 }
 
-Camera* KmlFactory::CreateCamera() const {
-  return new Camera();
+CameraPtr KmlFactory::CreateCamera() const {
+  CameraPtr();
 }
 
-Change* KmlFactory::CreateChange() const {
-  return new Change();
+ChangePtr KmlFactory::CreateChange() const {
+  ChangePtr();
 }
 
-Create* KmlFactory::CreateCreate() const {
-  return new Create();
+CreatePtr KmlFactory::CreateCreate() const {
+  CreatePtr();
 }
 
-Data* KmlFactory::CreateData() const {
-  return new Data();
+DataPtr KmlFactory::CreateData() const {
+  DataPtr();
 }
 
-Delete* KmlFactory::CreateDelete() const {
-  return new Delete();
+DeletePtr KmlFactory::CreateDelete() const {
+  DeletePtr();
 }
 
-Document* KmlFactory::CreateDocument() const {
-  return new Document();
+DocumentPtr KmlFactory::CreateDocument() const {
+  DocumentPtr();
 }
 
-ExtendedData* KmlFactory::CreateExtendedData() const {
-  return new ExtendedData();
+ExtendedDataPtr KmlFactory::CreateExtendedData() const {
+  ExtendedDataPtr();
 }
 
-Folder* KmlFactory::CreateFolder() const {
-  return new Folder();
+FolderPtr KmlFactory::CreateFolder() const {
+  FolderPtr();
 }
 
-GroundOverlay* KmlFactory::CreateGroundOverlay() const {
-  return new GroundOverlay();
+GroundOverlayPtr KmlFactory::CreateGroundOverlay() const {
+  GroundOverlayPtr();
 }
 
-HotSpot* KmlFactory::CreateHotSpot() const {
-  return new HotSpot();
+HotSpotPtr KmlFactory::CreateHotSpot() const {
+  HotSpotPtr();
 }
 
-Icon* KmlFactory::CreateIcon() const {
-  return new Icon();
+IconPtr KmlFactory::CreateIcon() const {
+  IconPtr();
 }
 
-IconStyle* KmlFactory::CreateIconStyle() const {
-  return new IconStyle();
+IconStylePtr KmlFactory::CreateIconStyle() const {
+  IconStylePtr();
 }
 
-IconStyleIcon* KmlFactory::CreateIconStyleIcon() const {
-  return new IconStyleIcon();
+IconStyleIconPtr KmlFactory::CreateIconStyleIcon() const {
+  IconStyleIconPtr();
 }
 
-ImagePyramid* KmlFactory::CreateImagePyramid() const {
-  return new ImagePyramid();
+ImagePyramidPtr KmlFactory::CreateImagePyramid() const {
+  ImagePyramidPtr();
 }
 
-InnerBoundaryIs* KmlFactory::CreateInnerBoundaryIs() const {
-  return new InnerBoundaryIs();
+InnerBoundaryIsPtr KmlFactory::CreateInnerBoundaryIs() const {
+  InnerBoundaryIsPtr();
 }
 
-ItemIcon* KmlFactory::CreateItemIcon() const {
-  return new ItemIcon();
+ItemIconPtr KmlFactory::CreateItemIcon() const {
+  ItemIconPtr();
 }
 
-Kml* KmlFactory::CreateKml() const {
-  return new Kml();
+KmlPtr KmlFactory::CreateKml() const {
+  KmlPtr();
 }
 
-LabelStyle* KmlFactory::CreateLabelStyle() const {
-  return new LabelStyle();
+LabelStylePtr KmlFactory::CreateLabelStyle() const {
+  LabelStylePtr();
 }
 
-LatLonBox* KmlFactory::CreateLatLonBox() const {
-  return new LatLonBox();
+LatLonBoxPtr KmlFactory::CreateLatLonBox() const {
+  LatLonBoxPtr();
 }
 
-LatLonAltBox* KmlFactory::CreateLatLonAltBox() const {
-  return new LatLonAltBox();
+LatLonAltBoxPtr KmlFactory::CreateLatLonAltBox() const {
+  LatLonAltBoxPtr();
 }
 
-LinearRing* KmlFactory::CreateLinearRing() const {
-  return new LinearRing();
+LinearRingPtr KmlFactory::CreateLinearRing() const {
+  LinearRingPtr();
 }
 
-LineString* KmlFactory::CreateLineString() const {
-  return new LineString();
+LineStringPtr KmlFactory::CreateLineString() const {
+  LineStringPtr();
 }
 
-LineStyle* KmlFactory::CreateLineStyle() const {
-  return new LineStyle();
+LineStylePtr KmlFactory::CreateLineStyle() const {
+  LineStylePtr();
 }
 
-Link* KmlFactory::CreateLink() const {
-  return new Link();
+LinkPtr KmlFactory::CreateLink() const {
+  LinkPtr();
 }
 
-LinkSnippet* KmlFactory::CreateLinkSnippet() const {
-  return new LinkSnippet();
+LinkSnippetPtr KmlFactory::CreateLinkSnippet() const {
+  LinkSnippetPtr();
 }
 
-ListStyle* KmlFactory::CreateListStyle() const {
-  return new ListStyle();
+ListStylePtr KmlFactory::CreateListStyle() const {
+  ListStylePtr();
 }
 
-Location* KmlFactory::CreateLocation() const {
-  return new Location();
+LocationPtr KmlFactory::CreateLocation() const {
+  LocationPtr();
 }
 
-Lod* KmlFactory::CreateLod() const {
-  return new Lod();
+LodPtr KmlFactory::CreateLod() const {
+  LodPtr();
 }
 
-LookAt* KmlFactory::CreateLookAt() const {
-  return new LookAt();
+LookAtPtr KmlFactory::CreateLookAt() const {
+  LookAtPtr();
 }
 
-Metadata* KmlFactory::CreateMetadata() const {
-  return new Metadata();
+MetadataPtr KmlFactory::CreateMetadata() const {
+  MetadataPtr();
 }
 
-Model* KmlFactory::CreateModel() const {
-  return new Model();
+ModelPtr KmlFactory::CreateModel() const {
+  ModelPtr();
 }
 
-MultiGeometry* KmlFactory::CreateMultiGeometry() const {
-  return new MultiGeometry();
+MultiGeometryPtr KmlFactory::CreateMultiGeometry() const {
+  MultiGeometryPtr();
 }
 
-NetworkLink* KmlFactory::CreateNetworkLink() const {
-  return new NetworkLink();
+NetworkLinkPtr KmlFactory::CreateNetworkLink() const {
+  NetworkLinkPtr();
 }
 
-NetworkLinkControl* KmlFactory::CreateNetworkLinkControl() const {
-  return new NetworkLinkControl();
+NetworkLinkControlPtr KmlFactory::CreateNetworkLinkControl() const {
+  NetworkLinkControlPtr();
 }
 
-Orientation* KmlFactory::CreateOrientation() const {
-  return new Orientation();
+OrientationPtr KmlFactory::CreateOrientation() const {
+  OrientationPtr();
 }
 
-OuterBoundaryIs* KmlFactory::CreateOuterBoundaryIs() const {
-  return new OuterBoundaryIs();
+OuterBoundaryIsPtr KmlFactory::CreateOuterBoundaryIs() const {
+  OuterBoundaryIsPtr();
 }
 
-OverlayXY* KmlFactory::CreateOverlayXY() const {
-  return new OverlayXY();
+OverlayXYPtr KmlFactory::CreateOverlayXY() const {
+  OverlayXYPtr();
 }
 
-Pair* KmlFactory::CreatePair() const {
-  return new Pair();
+PairPtr KmlFactory::CreatePair() const {
+  PairPtr();
 }
 
-PhotoOverlay* KmlFactory::CreatePhotoOverlay() const {
-  return new PhotoOverlay();
+PhotoOverlayPtr KmlFactory::CreatePhotoOverlay() const {
+  PhotoOverlayPtr();
 }
 
-Placemark* KmlFactory::CreatePlacemark() const {
-  return new Placemark();
+PlacemarkPtr KmlFactory::CreatePlacemark() const {
+  PlacemarkPtr();
 }
 
-Point* KmlFactory::CreatePoint() const {
-  return new Point();
+PointPtr KmlFactory::CreatePoint() const {
+  PointPtr();
 }
 
-Polygon* KmlFactory::CreatePolygon() const {
-  return new Polygon();
+PolygonPtr KmlFactory::CreatePolygon() const {
+  PolygonPtr();
 }
 
-PolyStyle* KmlFactory::CreatePolyStyle() const {
-  return new PolyStyle();
+PolyStylePtr KmlFactory::CreatePolyStyle() const {
+  PolyStylePtr();
 }
 
-Region* KmlFactory::CreateRegion() const {
-  return new Region();
+RegionPtr KmlFactory::CreateRegion() const {
+  RegionPtr();
 }
 
-ResourceMap* KmlFactory::CreateResourceMap() const {
-  return new ResourceMap();
+ResourceMapPtr KmlFactory::CreateResourceMap() const {
+  ResourceMapPtr();
 }
 
-RotationXY* KmlFactory::CreateRotationXY() const {
-  return new RotationXY();
+RotationXYPtr KmlFactory::CreateRotationXY() const {
+  RotationXYPtr();
 }
 
-Scale* KmlFactory::CreateScale() const {
-  return new Scale();
+ScalePtr KmlFactory::CreateScale() const {
+  ScalePtr();
 }
 
-ScreenOverlay* KmlFactory::CreateScreenOverlay() const {
-  return new ScreenOverlay();
+ScreenOverlayPtr KmlFactory::CreateScreenOverlay() const {
+  ScreenOverlayPtr();
 }
 
-Coordinates* KmlFactory::CreateCoordinates() const {
-  return new Coordinates();
+CoordinatesPtr KmlFactory::CreateCoordinates() const {
+  CoordinatesPtr();
 }
 
-ScreenXY* KmlFactory::CreateScreenXY() const {
-  return new ScreenXY();
+ScreenXYPtr KmlFactory::CreateScreenXY() const {
+  ScreenXYPtr();
 }
 
-Schema* KmlFactory::CreateSchema() const {
-  return new Schema();
+SchemaPtr KmlFactory::CreateSchema() const {
+  SchemaPtr();
 }
 
-SchemaData* KmlFactory::CreateSchemaData() const {
-  return new SchemaData();
+SchemaDataPtr KmlFactory::CreateSchemaData() const {
+  SchemaDataPtr();
 }
 
-Update* KmlFactory::CreateUpdate() const {
-  return new Update();
+UpdatePtr KmlFactory::CreateUpdate() const {
+  UpdatePtr();
 }
 
-Url* KmlFactory::CreateUrl() const {
-  return new Url();
+UrlPtr KmlFactory::CreateUrl() const {
+  UrlPtr();
 }
 
-SimpleData* KmlFactory::CreateSimpleData() const {
-  return new SimpleData();
+SimpleDataPtr KmlFactory::CreateSimpleData() const {
+  SimpleDataPtr();
 }
 
-SimpleField* KmlFactory::CreateSimpleField() const {
-  return new SimpleField();
+SimpleFieldPtr KmlFactory::CreateSimpleField() const {
+  SimpleFieldPtr();
 }
 
-Size* KmlFactory::CreateSize() const {
-  return new Size();
+SizePtr KmlFactory::CreateSize() const {
+  SizePtr();
 }
 
-Snippet* KmlFactory::CreateSnippet() const {
-  return new Snippet();
+SnippetPtr KmlFactory::CreateSnippet() const {
+  SnippetPtr();
 }
 
-Style* KmlFactory::CreateStyle() const {
-  return new Style();
+StylePtr KmlFactory::CreateStyle() const {
+  StylePtr();
 }
 
-StyleMap* KmlFactory::CreateStyleMap() const {
-  return new StyleMap();
+StyleMapPtr KmlFactory::CreateStyleMap() const {
+  StyleMapPtr();
 }
 
-TimeSpan* KmlFactory::CreateTimeSpan() const {
-  return new TimeSpan();
+TimeSpanPtr KmlFactory::CreateTimeSpan() const {
+  TimeSpanPtr();
 }
 
-TimeStamp* KmlFactory::CreateTimeStamp() const {
-  return new TimeStamp();
+TimeStampPtr KmlFactory::CreateTimeStamp() const {
+  TimeStampPtr();
 }
 
-ViewVolume* KmlFactory::CreateViewVolume() const {
-  return new ViewVolume();
+ViewVolumePtr KmlFactory::CreateViewVolume() const {
+  ViewVolumePtr();
 }
 
-XalAddressDetails* KmlFactory::CreateXalAddressDetails() const {
-  return new XalAddressDetails();
+XalAddressDetailsPtr KmlFactory::CreateXalAddressDetails() const {
+  XalAddressDetailsPtr();
 }
 
-XalAdministrativeArea* KmlFactory::CreateXalAdministrativeArea() const {
-  return new XalAdministrativeArea();
+XalAdministrativeAreaPtr KmlFactory::CreateXalAdministrativeArea() const {
+  XalAdministrativeAreaPtr();
 }
 
-XalCountry* KmlFactory::CreateXalCountry() const {
-  return new XalCountry();
+XalCountryPtr KmlFactory::CreateXalCountry() const {
+  XalCountryPtr();
 }
 
-XalLocality* KmlFactory::CreateXalLocality() const {
-  return new XalLocality();
+XalLocalityPtr KmlFactory::CreateXalLocality() const {
+  XalLocalityPtr();
 }
 
-XalPostalCode* KmlFactory::CreateXalPostalCode() const {
-  return new XalPostalCode();
+XalPostalCodePtr KmlFactory::CreateXalPostalCode() const {
+  XalPostalCodePtr();
 }
 
-XalSubAdministrativeArea* KmlFactory::CreateXalSubAdministrativeArea() const {
-  return new XalSubAdministrativeArea();
+XalSubAdministrativeAreaPtr KmlFactory::CreateXalSubAdministrativeArea() const {
+  XalSubAdministrativeAreaPtr();
 }
 
-XalThoroughfare* KmlFactory::CreateXalThoroughfare() const {
-  return new XalThoroughfare();
+XalThoroughfarePtr KmlFactory::CreateXalThoroughfare() const {
+  XalThoroughfarePtr();
 }
 
-GxAnimatedUpdate* KmlFactory::CreateGxAnimatedUpdate() const {
-  return new GxAnimatedUpdate();
+GxAnimatedUpdatePtr KmlFactory::CreateGxAnimatedUpdate() const {
+  GxAnimatedUpdatePtr();
 }
 
-GxFlyTo* KmlFactory::CreateGxFlyTo() const {
-  return new GxFlyTo();
+GxFlyToPtr KmlFactory::CreateGxFlyTo() const {
+  GxFlyToPtr();
 }
 
-GxLatLonQuad* KmlFactory::CreateGxLatLonQuad() const {
-  return new GxLatLonQuad();
+GxLatLonQuadPtr KmlFactory::CreateGxLatLonQuad() const {
+  GxLatLonQuadPtr();
 }
 
-GxMultiTrack* KmlFactory::CreateGxMultiTrack() const {
-  return new GxMultiTrack();
+GxMultiTrackPtr KmlFactory::CreateGxMultiTrack() const {
+  GxMultiTrackPtr();
 }
 
-GxPlaylist* KmlFactory::CreateGxPlaylist() const {
-  return new GxPlaylist();
+GxPlaylistPtr KmlFactory::CreateGxPlaylist() const {
+  GxPlaylistPtr();
 }
 
-GxSimpleArrayData* KmlFactory::CreateGxSimpleArrayData() const {
-  return new GxSimpleArrayData();
+GxSimpleArrayDataPtr KmlFactory::CreateGxSimpleArrayData() const {
+  GxSimpleArrayDataPtr();
 }
 
-GxSimpleArrayField* KmlFactory::CreateGxSimpleArrayField() const {
-  return new GxSimpleArrayField();
+GxSimpleArrayFieldPtr KmlFactory::CreateGxSimpleArrayField() const {
+  GxSimpleArrayFieldPtr();
 }
 
-GxSoundCue* KmlFactory::CreateGxSoundCue() const {
-  return new GxSoundCue();
+GxSoundCuePtr KmlFactory::CreateGxSoundCue() const {
+  GxSoundCuePtr();
 }
 
-GxTimeSpan* KmlFactory::CreateGxTimeSpan() const {
-  return new GxTimeSpan();
+GxTimeSpanPtr KmlFactory::CreateGxTimeSpan() const {
+  GxTimeSpanPtr();
 }
 
-GxTimeStamp* KmlFactory::CreateGxTimeStamp() const {
-  return new GxTimeStamp();
+GxTimeStampPtr KmlFactory::CreateGxTimeStamp() const {
+  GxTimeStampPtr();
 }
 
-GxTour* KmlFactory::CreateGxTour() const {
-  return new GxTour();
+GxTourPtr KmlFactory::CreateGxTour() const {
+  GxTourPtr();
 }
 
-GxTourControl* KmlFactory::CreateGxTourControl() const {
-  return new GxTourControl();
+GxTourControlPtr KmlFactory::CreateGxTourControl() const {
+  GxTourControlPtr();
 }
 
-GxTrack* KmlFactory::CreateGxTrack() const {
-  return new GxTrack();
+GxTrackPtr KmlFactory::CreateGxTrack() const {
+  GxTrackPtr();
 }
 
-GxWait* KmlFactory::CreateGxWait() const {
-  return new GxWait();
+GxWaitPtr KmlFactory::CreateGxWait() const {
+  GxWaitPtr();
 }
 
 }  // namespace kmldom

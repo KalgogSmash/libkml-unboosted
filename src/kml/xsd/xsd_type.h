@@ -26,7 +26,6 @@
 #ifndef KML_XSD_XSD_TYPE_H__
 #define KML_XSD_XSD_TYPE_H__
 
-#include "boost/intrusive_ptr.hpp"
 #include "kml/base/referent.h"
 #include "kml/base/util.h"
 
@@ -65,7 +64,7 @@ class XsdType : public kmlbase::Referent {
 
 };
 
-typedef boost::intrusive_ptr<XsdType> XsdTypePtr;
+typedef std::shared_ptr<XsdType> XsdTypePtr;
 
 }  // end namespace kmlxsd
 

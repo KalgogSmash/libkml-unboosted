@@ -28,7 +28,6 @@
 #include "kml/engine/kmz_file.h"
 #include <cstring>
 #include <set>
-#include "boost/scoped_ptr.hpp"
 #include "kml/base/file.h"
 #include "kml/base/string_util.h"
 #include "kml/base/zip_file.h"
@@ -187,7 +186,7 @@ size_t KmzFile::AddFileList(const string& base_url,
 
 // Static.
 bool KmzFile::WriteKmz(const char* kmz_filepath, const string& kml) {
-  boost::scoped_ptr<KmzFile> kmz(KmzFile::Create(kmz_filepath));
+  std::unique_ptr<KmzFile> kmz(KmzFile::Create(kmz_filepath));
   if (!kmz.get()) {
     return false;
   }
@@ -212,7 +211,7 @@ bool KmzFile::CreateFromKmlFilepath(const string& kml_filepath,
   kmlbase::File::SplitFilePath(kml_filepath, &base_dir, NULL);
 
   KmlFilePtr kml_file =
-    KmlFile::CreateFromStringWithUrl(kml_data, base_dir, NULL);
+      KmlFilePtr(KmlFile::CreateFromStringWithUrl(kml_data, base_dir, NULL));
 
   return CreateFromKmlFile(kml_file, kmz_filepath);
 }
@@ -224,7 +223,7 @@ bool KmzFile::CreateFromElement(const kmldom::ElementPtr& element,
   if (kmz_filepath.empty()) {
     return false;
   }
-  KmzFilePtr kmz_file = Create(kmz_filepath.c_str());
+  KmzFilePtr kmz_file = KmzFilePtr(Create(kmz_filepath.c_str()));
   if (!kmz_file) {
     return false;
   }

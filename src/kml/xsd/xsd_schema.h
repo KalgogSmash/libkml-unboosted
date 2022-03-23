@@ -28,8 +28,6 @@
 #ifndef KML_XSD_XSD_SCHEMA_H__
 #define KML_XSD_XSD_SCHEMA_H__
 
-#include "boost/intrusive_ptr.hpp"
-#include "boost/scoped_ptr.hpp"
 #include "kml/base/attributes.h"
 #include "kml/base/referent.h"
 #include "kml/base/xmlns.h"
@@ -99,12 +97,12 @@ public:
     target_namespace_prefix_ = xmlns_->GetKey(target_namespace_);
     return !target_namespace_.empty() && !target_namespace_prefix_.empty();
   }
-  boost::scoped_ptr<kmlbase::Xmlns> xmlns_;
+  std::unique_ptr<kmlbase::Xmlns> xmlns_;
   string target_namespace_;
   string target_namespace_prefix_;
 };
 
-typedef boost::intrusive_ptr<XsdSchema> XsdSchemaPtr;
+typedef std::shared_ptr<XsdSchema> XsdSchemaPtr;
 
 }  // end namespace kmlxsd
 

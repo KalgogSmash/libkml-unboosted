@@ -53,7 +53,7 @@ class NullCacheItem : public Referent {
   }
 };
 
-typedef boost::intrusive_ptr<NullCacheItem> NullCacheItemPtr;
+typedef std::shared_ptr<NullCacheItem> NullCacheItemPtr;
 
 // This NetCache CacheItem has instrumentation to track creation/deletion.
 static size_t instrumented_cache_item_count;
@@ -78,7 +78,7 @@ class InstrumentedCacheItem : public Referent {
   string content_;
 };
 
-typedef boost::intrusive_ptr<InstrumentedCacheItem> InstrumentedCacheItemPtr;
+typedef std::shared_ptr<InstrumentedCacheItem> InstrumentedCacheItemPtr;
 
 // Since the default NetFetcher always returns false this cache will never
 // accept content.  The size is set to non-zero to verify that cache internal
@@ -115,11 +115,11 @@ class NetCacheTest : public testing::Test {
   }
 
   NetFetcher null_net_fetcher_;
-  boost::scoped_ptr<NullNetCache> null_net_cache_;
+  std::unique_ptr<NullNetCache> null_net_cache_;
   TestDataNetFetcher testdata_net_fetcher_;
-  boost::scoped_ptr<TestDataNetCache> testdata_net_cache_;
+  std::unique_ptr<TestDataNetCache> testdata_net_cache_;
   UrlDataNetFetcher url_data_net_fetcher_;
-  boost::scoped_ptr<UrlDataNetCache> url_data_net_cache_;
+  std::unique_ptr<UrlDataNetCache> url_data_net_cache_;
 };
 
 // Verify very basic usage of the Size() method.

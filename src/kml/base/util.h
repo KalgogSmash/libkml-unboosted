@@ -51,6 +51,7 @@ typedef unsigned int uint;
   void operator=(const TypeName&)
 
 #include <string>
+#include <memory>
 
 // A convenience for the internal build system at Google.
 #ifndef HAS_GLOBAL_STRING

@@ -27,7 +27,6 @@
 
 #include "kml/base/attributes.h"
 #include <algorithm>
-#include "boost/scoped_ptr.hpp"
 #include "gtest/gtest.h"
 
 namespace kmlbase {
@@ -42,7 +41,7 @@ class AttributesTest : public testing::Test {
   virtual void SetUp() {
     attributes_.reset(new Attributes);
   }
-  boost::scoped_ptr<Attributes> attributes_;
+  std::unique_ptr<Attributes> attributes_;
 };
 
 TEST_F(AttributesTest, TestCreate) {
@@ -198,7 +197,7 @@ TEST_F(AttributesTest, TestSplit) {
   attributes_.reset(Attributes::Create(atts));
   ASSERT_TRUE(attributes_.get());
   // This is the method under test.
-  boost::scoped_ptr<Attributes> xmlns_(attributes_->SplitByPrefix("xmlns"));
+  std::unique_ptr<Attributes> xmlns_(attributes_->SplitByPrefix("xmlns"));
   ASSERT_TRUE(xmlns_.get());
   ASSERT_EQ(static_cast<size_t>(1), xmlns_->GetSize());
   string val;
@@ -215,7 +214,7 @@ TEST_F(AttributesTest, TestMatchNoDefault) {
   attributes_.reset(Attributes::Create(atts));
   ASSERT_TRUE(attributes_.get());
   // This is the method under test.
-  boost::scoped_ptr<Attributes> xmlns_(attributes_->SplitByPrefix("xmlns"));
+  std::unique_ptr<Attributes> xmlns_(attributes_->SplitByPrefix("xmlns"));
   ASSERT_TRUE(xmlns_.get());
   ASSERT_EQ(static_cast<size_t>(2), xmlns_->GetSize());
   string val;

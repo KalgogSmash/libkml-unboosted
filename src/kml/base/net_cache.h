@@ -30,7 +30,6 @@
 
 #include <map>
 #include "kml/base/util.h"
-#include "boost/intrusive_ptr.hpp"
 
 namespace kmlbase {
 
@@ -68,7 +67,7 @@ class NetFetcher {
 //     }
 //     // other methods if you have them
 //   };
-//   typedef boost::intrusive_ptr<MyCacheItem> MyCacheItemPtr;
+//   typedef std::shared_ptr<MyCacheItem> MyCacheItemPtr;
 //
 // Create a NetCache for that CacheItem:
 //   NetCache<MyCacheItem> net_cache_of_my_cache_items;
@@ -90,13 +89,13 @@ class NetFetcher {
 //   MyCacheItemPtr a = net_cache_of_my_cache_items.Fetch(some-url);
 //   MyCacheItemPtr b = net_cache_of_my_cache_items.Fetch(some-other-url);
 // When the NetCache goes out of scope all cached CacheItems are deleted,
-// however use of boost::intrusive_ptr does permit any code to hold a pointer
+// however use of std::shared_ptr does permit any code to hold a pointer
 // to an item originally from cache beyond the cache's lifetime.
 // NOTE: This class is NOT thread safe!
 template<class CacheItem>
 class NetCache {
  public:
-  typedef boost::intrusive_ptr<CacheItem> CacheItemPtr;
+  typedef std::shared_ptr<CacheItem> CacheItemPtr;
   typedef std::pair<CacheItemPtr, uint64_t> CacheEntry;
   typedef std::map<string, CacheEntry> CacheMap;
 
@@ -128,7 +127,7 @@ class NetCache {
       return NULL;  // Fetch failed, no such URL.
     }
     // Fetch succeeded: create a CacheItem from the data.
-    CacheItemPtr item = CacheItem::CreateFromString(data);
+    CacheItemPtr item = CacheItemPtr(CacheItem::CreateFromString(data));
     if (!Save(url, item)) {  // This is basically an internal error.
       return NULL;
     }

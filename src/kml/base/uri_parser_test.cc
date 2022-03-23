@@ -40,7 +40,7 @@ namespace kmlbase {
 // This test fixture is for the unit test cases of the UriParser class.
 class UriParserTest : public testing::Test {
  protected:
-  boost::scoped_ptr<UriParser> uri_parser_;
+  std::unique_ptr<UriParser> uri_parser_;
   void VerifyUriResolution(const char* base, const char* relative,
                            const char* want_result);
 };
@@ -102,9 +102,9 @@ TEST_F(UriParserTest, TestBasicResolve) {
   const string kBase("http://foo.com/hello/");
   const string kRelative("../hi");
   const string kResult("http://foo.com/hi");
-  boost::scoped_ptr<UriParser> base_uri(
+  std::unique_ptr<UriParser> base_uri(
       UriParser::CreateFromParse(kBase.c_str()));
-  boost::scoped_ptr<UriParser> relative_uri(
+  std::unique_ptr<UriParser> relative_uri(
       UriParser::CreateFromParse(kRelative.c_str()));
   uri_parser_.reset(new UriParser);
   ASSERT_TRUE(uri_parser_->Resolve(*base_uri.get(), *relative_uri.get()));

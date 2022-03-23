@@ -72,7 +72,7 @@ class TestHandler : public ExpatHandler {
 TEST_F(ExpatHandlerNsTest, TestExpatParserDefault) {
   Attributes attributes;
   attributes.SetString("xmlns", kDefaultNamespace);
-  boost::scoped_ptr<Xmlns> xmlns(Xmlns::Create(attributes));
+  std::unique_ptr<Xmlns> xmlns(Xmlns::Create(attributes));
   std::vector<string> log;
   TestHandler test_handler(&log);
   ExpatHandlerNs expat_handler_ns(&test_handler, xmlns.get());
@@ -92,7 +92,7 @@ TEST_F(ExpatHandlerNsTest, TestExpatParserPrefixed) {
   Attributes attributes;
   attributes.SetString(
       string("xmlns:") + kDefaultPrefix, kDefaultNamespace);
-  boost::scoped_ptr<Xmlns> xmlns(Xmlns::Create(attributes));
+  std::unique_ptr<Xmlns> xmlns(Xmlns::Create(attributes));
   std::vector<string> log;
   TestHandler test_handler(&log);
   ExpatHandlerNs expat_handler_ns(&test_handler, xmlns.get());
@@ -115,7 +115,7 @@ TEST_F(ExpatHandlerNsTest, TestExpatParserDefaultAndPrefixed) {
   attributes.SetString("xmlns", kDefaultNamespace);
   attributes.SetString(
       string("xmlns:") + kOtherPrefix, kOtherNamespace);
-  boost::scoped_ptr<Xmlns> xmlns(Xmlns::Create(attributes));
+  std::unique_ptr<Xmlns> xmlns(Xmlns::Create(attributes));
   std::vector<string> log;
   TestHandler test_handler(&log);
   ExpatHandlerNs expat_handler_ns(&test_handler, xmlns.get());

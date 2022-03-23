@@ -27,7 +27,6 @@
 
 #include "kml/xsd/xsd_handler.h"
 #include <cstring>  // strcmp
-#include "boost/scoped_ptr.hpp"
 #include "kml/base/attributes.h"
 #include "kml/xsd/xsd_element.h"
 #include "kml/xsd/xsd_file.h"
@@ -41,7 +40,7 @@ namespace kmlxsd {
 // <xs:complexType name="..." abstract="...">
 void XsdHandler::StartComplexType(const Attributes& attributes) {
   if (!current_type_) {  // <xs:complexType> and/or <xs:simpleType>
-    current_type_ = XsdComplexType::Create(attributes);
+    current_type_ = XsdTypePtr(XsdComplexType::Create(attributes));
   }
 }
 
@@ -66,7 +65,7 @@ void XsdHandler::StartExtension(const Attributes& attributes) {
 // <xs:simpleType name="..."/>
 void XsdHandler::StartSimpleType(const Attributes& attributes) {
   if (!current_type_) {  // <xs:simpleType is never nested...
-    current_type_ = XsdSimpleType::Create(attributes);
+    current_type_ = XsdTypePtr(XsdSimpleType::Create(attributes));
   }
 }
 
@@ -102,21 +101,21 @@ void XsdHandler::StartXsElement(const Attributes& attributes) {
 
   // Is this a global element?
   if (parse_.top() == kSchema) {
-    xsd_file_->add_element(element);
+    xsd_file_->add_element(XsdElementPtr(element));
   } else if (XsdComplexTypePtr complex_type =
                  XsdComplexType::AsComplexType(current_type_)) {
      // Is it a child of <xs:complexType>?
-    complex_type->add_element(element);
+    complex_type->add_element(XsdElementPtr(element));
   }
 }
 
 // ExpatHandler::StartElement
 void XsdHandler::StartElement(const string& xs_element_name,
                               const kmlbase::StringVector& atts) {
-  boost::scoped_ptr<Attributes> attributes(Attributes::Create(atts));
+  std::unique_ptr<Attributes> attributes(Attributes::Create(atts));
 
   if (xs_element_name.compare(kSchema) == 0) {
-    xsd_file_->set_schema(XsdSchema::Create(*attributes));
+    xsd_file_->set_schema(XsdSchemaPtr(XsdSchema::Create(*attributes)));
   } else if (xs_element_name.compare(kElement) == 0) {
     StartXsElement(*attributes);
   } else if (xs_element_name.compare(kComplexType) == 0) {

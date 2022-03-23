@@ -36,7 +36,6 @@
 #define KML_DOM_ELEMENT_H__
 
 #include <vector>
-#include "boost/scoped_ptr.hpp"
 #include "kml/dom/kml22.h"
 #include "kml/dom/kml_ptr.h"
 #include "kml/dom/visitor_driver.h"
@@ -55,7 +54,7 @@ class Xsd;
 
 // This is a KML-specific implementation of the somewhat abstracted
 // kmlbase::XmlElement.
-class Element : public kmlbase::XmlElement {
+class Element : public kmlbase::XmlElement, std::enable_shared_from_this<Element> {
  public:
   virtual ~Element();
   virtual KmlDomType Type() const { return type_id_; }
@@ -189,7 +188,7 @@ class Element : public kmlbase::XmlElement {
       // TODO: remove child and children from ID maps...
       *field = NULL;  // Assign removes reference and possibly deletes Element.
       return true;
-    } else if (child->SetParent(this)) {
+    } else if (child->SetParent(shared_from_this())) {
       *field = child;  // This first releases the reference to previous field.
       return true;
     }
@@ -200,7 +199,7 @@ class Element : public kmlbase::XmlElement {
   template <class T>
   bool AddComplexChild(const T& child, std::vector<T>* vec) {
     // NULL child ignored.
-    if (child && child->SetParent(this)) {
+    if (child && child->SetParent(shared_from_this())) {
       vec->push_back(child);
       return true;
     }
@@ -242,9 +241,9 @@ class Element : public kmlbase::XmlElement {
   // Unknown attributes found during parse are copied out and a pointer is
   // stored. The object is dynamically allocated so every element is not
   // burdened with an unnecessary Attributes object.
-  boost::scoped_ptr<kmlbase::Attributes> unknown_attributes_;
+  std::unique_ptr<kmlbase::Attributes> unknown_attributes_;
   // Any Element may have 0 or more xmlns attributes.
-  boost::scoped_ptr<kmlbase::Attributes> xmlns_;
+  std::unique_ptr<kmlbase::Attributes> xmlns_;
   LIBKML_DISALLOW_EVIL_CONSTRUCTORS(Element);
 };
 

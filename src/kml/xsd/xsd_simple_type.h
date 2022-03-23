@@ -27,7 +27,6 @@
 #define KML_XSD_XSD_SIMPLE_TYPE_H__
 
 #include <vector>
-#include "boost/intrusive_ptr.hpp"
 #include "kml/base/attributes.h"
 #include "kml/xsd/xsd_type.h"
 
@@ -35,7 +34,7 @@ namespace kmlxsd {
 
 class XsdSimpleType;
 
-typedef boost::intrusive_ptr<XsdSimpleType> XsdSimpleTypePtr;
+typedef std::shared_ptr<XsdSimpleType> XsdSimpleTypePtr;
 
 // Corresponds to <xs:simpleType>.
 class XsdSimpleType : public XsdType {
@@ -50,7 +49,7 @@ class XsdSimpleType : public XsdType {
 
   static XsdSimpleTypePtr AsSimpleType(const XsdTypePtr& xsd_type) {
     if (xsd_type && xsd_type->get_xsd_type_id() == XSD_TYPE_SIMPLE) {
-      return boost::static_pointer_cast<XsdSimpleType>(xsd_type);
+      return std::static_pointer_cast<XsdSimpleType>(xsd_type);
     }
     return NULL;
   }

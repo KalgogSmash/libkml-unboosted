@@ -183,7 +183,7 @@ bool ZipFile::GetEntry(const string& path_in_zip,
     return false;
   }
 
-  boost::scoped_ptr<UnzFileHelper> unzfilehelper(new UnzFileHelper(unzfile));
+  std::unique_ptr<UnzFileHelper> unzfilehelper(new UnzFileHelper(unzfile));
   unz_file_info finfo;
   if (libkml_unzLocateFile(unzfilehelper->get_unzfile(),
                     path_in_zip.c_str(), 0) != UNZ_OK ||

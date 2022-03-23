@@ -33,8 +33,8 @@ namespace kmlbase {
 
 class XmlnsTest : public testing::Test {
  protected:
-  boost::scoped_ptr<Attributes> attributes_;
-  boost::scoped_ptr<Xmlns> xmlns_;
+  std::unique_ptr<Attributes> attributes_;
+  std::unique_ptr<Xmlns> xmlns_;
 };
 
 // Just to pick a random example test case... (this is from ogckml22.xsd).

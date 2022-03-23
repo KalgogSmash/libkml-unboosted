@@ -29,7 +29,6 @@
 #define KML_XSD_XSD_HANDLER_H__
 
 #include <stack>
-#include "boost/scoped_ptr.hpp"
 #include "kml/base/expat_handler.h"
 #include "kml/xsd/xsd_type.h"
 

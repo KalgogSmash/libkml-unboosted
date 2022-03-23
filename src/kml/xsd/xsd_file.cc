@@ -95,7 +95,7 @@ const XsdTypePtr XsdFile::FindElementType(const XsdElementPtr& element) const {
   }
   // If this is primitive synthesize an XsdType.
   if (element->is_primitive()) {
-    return XsdPrimitiveType::Create(element->get_type());
+    return XsdTypePtr(XsdPrimitiveType::Create(element->get_type()));
   }
   // Chop off the namespace prefix of this element's type IFF this type is in
   // the <xs:schema>'s targetNamespace.

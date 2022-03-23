@@ -28,7 +28,6 @@
 #ifndef KML_BASE_XML_ELEMENT_H__
 #define KML_BASE_XML_ELEMENT_H__
 
-#include "boost/intrusive_ptr.hpp"
 #include "kml/base/referent.h"
 #include "kml/base/util.h"
 #include "kml/base/xml_namespaces.h"
@@ -40,15 +39,15 @@ class XmlFile;
 // Forward declare XmlElement to create typedef used within class XmlElement.
 class XmlElement;
 
-typedef boost::intrusive_ptr<XmlElement> XmlElementPtr;
+typedef std::shared_ptr<XmlElement> XmlElementPtr;
 
 // This class represents an XML element.  An XmlElement may be in one XmlFile,
 // and may have one parent XmlElement.  This class is derived from Referent
-// such that derived classes can use boost::intrusive_ptr.
+// such that derived classes can use std::shared_ptr.
 class XmlElement : public Referent {
  public:
   // Get the parent XmlElement if any.
-  const XmlElement* GetParent() const {
+  const std::weak_ptr<XmlElement> GetParent() const {
     return parent_;
   }
 
@@ -82,7 +81,7 @@ class XmlElement : public Referent {
 
  protected:
   // This is an abstract base class and is never created directly.
-  XmlElement() : xmlns_id_(XMLNS_NONE), parent_(NULL), xml_file_(NULL) {}
+  XmlElement() : xmlns_id_(XMLNS_NONE), xml_file_(NULL) {}
 
   void set_xmlns(XmlnsId xmlns_id) {
     xmlns_id_ = xmlns_id;
@@ -92,8 +91,8 @@ class XmlElement : public Referent {
   // XmlElement already has a parent or if this XmlElement is in a different
   // XmlFile.
   bool SetParent(const XmlElementPtr& parent) {
-    if (!parent_ && parent && InSameXmlFile(parent)) {
-      parent_ = parent.get();
+    if (parent_.expired() && parent && InSameXmlFile(parent)) {
+      parent_ = parent;
       return true;
     }
     return false;
@@ -101,7 +100,7 @@ class XmlElement : public Referent {
 
  private:
   XmlnsId xmlns_id_;
-  const XmlElement* parent_;  // Can't ref count due to circularity.
+  std::weak_ptr<XmlElement> parent_;
   const XmlFile* xml_file_;
   LIBKML_DISALLOW_EVIL_CONSTRUCTORS(XmlElement);
 };

@@ -83,7 +83,7 @@ bool KmlFile::_CreateFromParse(const string& kml_or_kmz_data,
 bool KmlFile::OpenAndParseKmz(const string& kmz_data,
                               string* errors) {
   string kml_data;
-  KmzFilePtr kmz_file = kmlengine::KmzFile::OpenFromString(kmz_data);
+  KmzFilePtr kmz_file = KmzFilePtr(kmlengine::KmzFile::OpenFromString(kmz_data));
   if (!kmz_file || !kmz_file->ReadKml(&kml_data)) {
       return false;
   }

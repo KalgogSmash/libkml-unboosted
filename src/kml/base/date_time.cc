@@ -26,7 +26,6 @@
 // This file contains the implementation of the DateTime class.
 
 #include "kml/base/date_time.h"
-#include "boost/scoped_ptr.hpp"
 #include <stdlib.h>
 
 // TODO: fix this for real.
@@ -51,7 +50,7 @@ DateTime* DateTime::Create(const string& str) {
 
 // static
 time_t DateTime::ToTimeT(const string& str) {
-  boost::scoped_ptr<DateTime> date_time(DateTime::Create(str));
+  std::unique_ptr<DateTime> date_time(DateTime::Create(str));
   return date_time.get() ? date_time->GetTimeT() : 0;
 }
 

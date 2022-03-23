@@ -140,7 +140,7 @@ void Element::SerializeAttributes(Attributes* attributes) const {
 }
 
 ElementPtr Element::GetParent() const {
-  return AsElement(const_cast<XmlElement*>(XmlElement::GetParent()));
+  return AsElement(XmlElement::GetParent().lock());
 }
 
 void Element::MergeXmlns(const Attributes& xmlns) {

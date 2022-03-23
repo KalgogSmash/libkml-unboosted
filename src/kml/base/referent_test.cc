@@ -24,11 +24,10 @@
 // ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 // This file contains the unit tests for the Referent class and the
-// functions used by boost::intrusive_ptr.
+// functions used by std::shared_ptr.
 
 #include "kml/base/referent.h"
 #include <vector>
-#include "boost/intrusive_ptr.hpp"
 #include "gtest/gtest.h"
 
 namespace kmlbase {
@@ -41,7 +40,7 @@ class ReferentTest : public testing::Test {
 
   // This forward declaration is for the benefit of the typedef.
   class Derived;
-  typedef boost::intrusive_ptr<Derived> DerivedPtr;
+  typedef std::shared_ptr<Derived> DerivedPtr;
 
   // This is a test class for excercising expected usage scenarios of the
   // Referent class.
@@ -92,7 +91,7 @@ TEST_F(ReferentTest, TestReferent) {
 }
 
 // This tests the intrusive_ptr_add_ref() and intrusive_ptr_release()
-// functions used by boost::intrusive_ptr.
+// functions used by std::shared_ptr.
 TEST_F(ReferentTest, TestIntrusivePointerFunctions) {
   Referent* referent = new Referent;
   ASSERT_EQ(0, referent->get_ref_count());
@@ -159,7 +158,7 @@ void ReferentTest::FuncByReference(DerivedPtr& d, int expected_ref_count) {
 TEST_F(ReferentTest, TestFunc) {
   // Verify initial conditions:
   ASSERT_EQ(1, derived_->get_ref_count());
-  // Pass a boost::intrusive_ptr by value thus increasing the reference count.
+  // Pass a std::shared_ptr by value thus increasing the reference count.
   FuncByValue(derived_, 2);
   // Pass by value now out of scope to reference count back to where it was:
   ASSERT_EQ(1, derived_->get_ref_count());

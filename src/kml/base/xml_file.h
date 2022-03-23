@@ -29,7 +29,6 @@
 #define KML_BASE_XML_FILE_H__
 
 #include <map>
-#include "boost/intrusive_ptr.hpp"
 #include "kml/base/xml_element.h"
 #include "kml/base/referent.h"
 #include "kml/base/util.h"

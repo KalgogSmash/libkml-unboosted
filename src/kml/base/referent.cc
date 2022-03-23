@@ -23,24 +23,22 @@
 // OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
 // ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// This file contains the implementation of the free functions used by
-// boost::intrusive_ptr.  See boost/intrusive_ptr.hpp for more information.
 
 #include "kml/base/referent.h"
 
 namespace kmlbase {
 
-// This function is used from within boost::intrusive_ptr to increment the
+// This function is used from within std::shared_ptr to increment the
 // reference count when a new intrusive_ptr to a Referent-derived object is
-// created.  This function is to be used only from within boost::intrusive_ptr.
+// created.  This function is to be used only from within std::shared_ptr.
 void intrusive_ptr_add_ref(kmlbase::Referent* r) {
   r->add_ref();
 } 
 
-// This function is used from within boost::intrusive_ptr to decrement the
+// This function is used from within std::shared_ptr to decrement the
 // reference count when an intrusive_ptr to a Referent-derived object goes out
 // of scope.  This is the only call to delete of a Referent-derived type.
-// This function is to be used only from within boost::intrusive_ptr.
+// This function is to be used only from within std::shared_ptr.
 void intrusive_ptr_release(kmlbase::Referent* r) {
   // Strictly speaking this need only be "if (r->release() == 0)" given that
   // under normal operations with no direct use of these functions or

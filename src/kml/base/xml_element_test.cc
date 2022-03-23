@@ -36,8 +36,8 @@ namespace kmlbase {
 class TestElement;
 
 // XmlElement derives from Referent such that any derived class can use
-// boost::intrusive_ptr.
-typedef boost::intrusive_ptr<TestElement> TestElementPtr;
+// std::shared_ptr.
+typedef std::shared_ptr<TestElement> TestElementPtr;
 
 // The typical use case of XmlElement is to derive a concrete (or abstract)
 // XML element class.
@@ -61,7 +61,7 @@ class TestElement : public XmlElement {
 class TestFile : public XmlFile {
 };
 
-typedef boost::intrusive_ptr<TestFile> TestFilePtr;
+typedef std::shared_ptr<TestFile> TestFilePtr;
 
 TEST(XmlElementTest, TestDefault) {
   TestElementPtr element = new TestElement;

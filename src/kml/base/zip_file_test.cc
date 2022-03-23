@@ -45,7 +45,7 @@ namespace kmlbase {
 
 class ZipFileTest : public testing::Test {
  protected:
-  boost::scoped_ptr<ZipFile> zip_file_;
+  std::unique_ptr<ZipFile> zip_file_;
 };
 
 TEST_F(ZipFileTest, TestOpenFromString) {
@@ -201,7 +201,7 @@ TEST_F(ZipFileTest, TestAddEntry) {
   ASSERT_TRUE(tempfile != NULL);
   {
     // Create an empty ZipFile.
-    boost::scoped_ptr<ZipFile> zipfile(
+    std::unique_ptr<ZipFile> zipfile(
         ZipFile::Create(tempfile->name().c_str()));
     ASSERT_TRUE(zipfile.get());
     // Add three files to the archive.
@@ -218,7 +218,7 @@ TEST_F(ZipFileTest, TestAddEntry) {
   ASSERT_TRUE(File::Exists(tempfile->name()));
 
   // Verify that the archive we created contains the files in order.
-  boost::scoped_ptr<ZipFile> created(
+  std::unique_ptr<ZipFile> created(
       ZipFile::OpenFromFile(tempfile->name().c_str()));
   ASSERT_TRUE(created.get());
   std::vector<string> list;
@@ -235,7 +235,7 @@ TEST_F(ZipFileTest, TestAddEntryDupe) {
   TempFilePtr tempfile = TempFile::CreateTempFile();
   ASSERT_TRUE(tempfile != NULL);
   {
-    boost::scoped_ptr<ZipFile> zipfile(
+    std::unique_ptr<ZipFile> zipfile(
         ZipFile::Create(tempfile->name().c_str()));
     ASSERT_TRUE(zipfile.get());
     const string kKml = "<Placemark><name/></Placemark>";
@@ -244,7 +244,7 @@ TEST_F(ZipFileTest, TestAddEntryDupe) {
     ASSERT_TRUE(zipfile->AddEntry(kNewKml, "doc.kml"));
   }
   ASSERT_TRUE(File::Exists(tempfile->name()));
-  boost::scoped_ptr<ZipFile> created(
+  std::unique_ptr<ZipFile> created(
       ZipFile::OpenFromFile(tempfile->name().c_str()));
   ASSERT_TRUE(created.get());
   string read_kml;

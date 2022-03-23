@@ -29,8 +29,6 @@
 #define KML_ENGINE_KMZ_FILE_H__
 
 #include <vector>
-#include "boost/intrusive_ptr.hpp"
-#include "boost/scoped_ptr.hpp"
 #include "kml/base/referent.h"
 #include "kml/base/util.h"
 #include "kml/engine/kml_file.h"
@@ -168,11 +166,11 @@ class KmzFile : public kmlbase::Referent {
  private:
   // Class can only be created from static methods.
   KmzFile(kmlbase::ZipFile* zip_file);
-  boost::scoped_ptr<kmlbase::ZipFile> zip_file_;
+  std::unique_ptr<kmlbase::ZipFile> zip_file_;
   LIBKML_DISALLOW_EVIL_CONSTRUCTORS(KmzFile);
 };
 
-typedef boost::intrusive_ptr<KmzFile> KmzFilePtr;
+typedef std::shared_ptr<KmzFile> KmzFilePtr;
 
 }  // end namespace kmlengine
 

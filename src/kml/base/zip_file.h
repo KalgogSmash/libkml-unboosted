@@ -28,7 +28,6 @@
 #ifndef KML_BASE_ZIP_FILE_H__
 #define KML_BASE_ZIP_FILE_H__
 
-#include "boost/scoped_ptr.hpp"
 #include "kml/base/string_util.h"
 #include "kml/base/util.h"
 
@@ -110,7 +109,7 @@ class ZipFile {
   ZipFile(const string& data);
   // The constructor used in creation of a ZIP file suitable for writing.
   ZipFile(MinizipFile* minizip_file);
-  boost::scoped_ptr<MinizipFile> minizip_file_;
+  std::unique_ptr<MinizipFile> minizip_file_;
   string data_;
   StringVector zipfile_toc_;
   unsigned long max_uncompressed_file_size_;

@@ -27,19 +27,19 @@
 #define KML_BASE_REFERENT_H__
 
 // This file contains the implementation of the Referent class which holds
-// the reference counter used by boost::intrusive_ptr.  The Referent class
+// the reference counter used by std::shared_ptr.  The Referent class
 // is a base class of all KML DOM Elements and also the base TempFile
 // class.  Neither the Referent class nor the methods here are part of the
 // libkml public API.
 
 namespace kmlbase {
 
-// This class implements the reference count used by boost::intrusive_ptr.
+// This class implements the reference count used by std::shared_ptr.
 class Referent {
  public:
   // The constructor only constructs the Referent object.  The reference
   // count is incremented if and when the Referent-derived object is assigned
-  // to a boost::intrusive_ptr.
+  // to a std::shared_ptr.
   Referent() : ref_count_(0) {}
   virtual ~Referent() {}
 
@@ -65,7 +65,7 @@ class Referent {
 };
 
 // These declarations are for the implementation of the functions used within
-// boost::intrusive_ptr to manage Referent-derived objects..  See referent.cc
+// std::shared_ptr to manage Referent-derived objects..  See referent.cc
 // and boost/intrusive_ptr.hpp.
 void intrusive_ptr_add_ref(kmlbase::Referent* r);
 void intrusive_ptr_release(kmlbase::Referent* r);

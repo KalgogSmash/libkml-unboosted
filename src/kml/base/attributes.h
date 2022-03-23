@@ -31,7 +31,6 @@
 #include <stdlib.h>
 #include <map>
 #include <sstream>
-#include "boost/scoped_ptr.hpp"
 #include "kml/base/string_util.h"
 #include "kml/base/util.h"
 

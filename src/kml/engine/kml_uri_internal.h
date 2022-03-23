@@ -30,7 +30,6 @@
 #ifndef KML_ENGINE_KML_URI_INTERNAL_H__
 #define KML_ENGINE_KML_URI_INTERNAL_H__
 
-#include "boost/scoped_ptr.hpp"
 #include "kml/base/util.h"
 
 // Forward declare to avoid including uri_parser.h in app code.
@@ -102,7 +101,7 @@ class KmlUri {
   const string base_;
   const string target_;
   // TODO use UriParser's throughout _or_ string, not both.
-  boost::scoped_ptr<kmlbase::UriParser> target_uri_;
+  std::unique_ptr<kmlbase::UriParser> target_uri_;
 
   string url_;
 

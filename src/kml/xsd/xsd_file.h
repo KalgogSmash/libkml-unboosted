@@ -31,7 +31,6 @@
 #include <map>
 #include <stack>
 #include <vector>
-#include "boost/scoped_ptr.hpp"
 #include "kml/base/xmlns.h"
 #include "kml/xsd/xsd_element.h"
 #include "kml/xsd/xsd_complex_type.h"

@@ -41,7 +41,7 @@ class TestFile : public XmlFile {
     return XmlFile::set_root(element);
   }
 };
-typedef boost::intrusive_ptr<TestFile> TestFilePtr;
+typedef std::shared_ptr<TestFile> TestFilePtr;
 
 class TestElement : public XmlElement {
  public:
@@ -52,7 +52,7 @@ class TestElement : public XmlElement {
  private:
   int id_;
 };
-typedef boost::intrusive_ptr<TestElement> TestElementPtr;
+typedef std::shared_ptr<TestElement> TestElementPtr;
 
 TEST(XmlFileTest, TestDefault) {
   TestFilePtr xml_file = new TestFile;
