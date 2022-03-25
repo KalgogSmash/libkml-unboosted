@@ -121,20 +121,14 @@ size_t FeatureList::RegionSplit(const RegionPtr& region, size_t max,
 
 // This function object is used by STL sort() to order Features
 // by score.  Results in sort of highest score first.
-struct CompareFeatures
-  : public std::binary_function<const kmldom::FeaturePtr&,
-                                const kmldom::FeaturePtr&,
-                                bool> {
-  bool operator()(const kmldom::FeaturePtr& a,
-                  const kmldom::FeaturePtr& b) {
+bool CompareFeatures(const kmldom::FeaturePtr& a, const kmldom::FeaturePtr& b) {
     return GetFeatureScore(a) > GetFeatureScore(b);
-  }
-};
+}
 
 // Sort the internal list of features based on score.
 void FeatureList::Sort() {
   // See Effective STL, by Scott Meyers, Item 44, page 192.
-  feature_list_.sort(CompareFeatures());
+  feature_list_.sort(CompareFeatures);
 }
 
 // Return the number of features held in the internal list.

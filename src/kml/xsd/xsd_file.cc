@@ -48,24 +48,11 @@ XsdFile* XsdFile::CreateFromParse(const string& xsd_data,
   return NULL;
 }
 
-// TODO: mem_fun might help avoid this functor
-typedef std::pair<string, XsdElementPtr> NameElementPair;
-struct GetElement : public std::unary_function<NameElementPair, void> {
-  GetElement(XsdElementVector* elements)
-    : elements_(elements) {
-  }
-
-  void operator()(NameElementPair name_element_pair) {
-    elements_->push_back(name_element_pair.second);
-  }
-
- private:
-  XsdElementVector* elements_;
-};
-
 void XsdFile::GetAllElements(XsdElementVector* elements) const {
-  // TODO: a normal for loop would be simpler...
-  std::for_each(element_map_.begin(), element_map_.end(), GetElement(elements));
+    for each (auto element_pair in element_map_)
+    {
+        elements->push_back(element_pair.second);
+    }
 }
 
 void XsdFile::GetAllTypes(XsdTypeVector* types) const {

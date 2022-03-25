@@ -144,6 +144,15 @@
     <ClCompile Include="kml\dom\xsd.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="kml\dom\gx_tour.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kml\dom\xal.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kml\dom\gx_timeprimitive.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kml\dom\abstractlatlonbox.h">
@@ -288,6 +297,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="kml\dom\xsd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kml\dom\xal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kml\dom\gx_tour.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kml\dom\gx_timeprimitive.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

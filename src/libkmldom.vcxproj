@@ -130,6 +130,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ForcedIncludeFiles>%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -145,6 +146,8 @@
     <ClCompile Include="kml\dom\feature.cc" />
     <ClCompile Include="kml\dom\folder.cc" />
     <ClCompile Include="kml\dom\geometry.cc" />
+    <ClCompile Include="kml\dom\gx_timeprimitive.cc" />
+    <ClCompile Include="kml\dom\gx_tour.cc" />
     <ClCompile Include="kml\dom\hotspot.cc" />
     <ClCompile Include="kml\dom\iconstyle.cc" />
     <ClCompile Include="kml\dom\kml.cc" />
@@ -174,6 +177,7 @@
     <ClCompile Include="kml\dom\substyle.cc" />
     <ClCompile Include="kml\dom\timeprimitive.cc" />
     <ClCompile Include="kml\dom\vec2.cc" />
+    <ClCompile Include="kml\dom\xal.cc" />
     <ClCompile Include="kml\dom\xml_serializer.cc" />
     <ClCompile Include="kml\dom\xsd.cc" />
   </ItemGroup>
@@ -191,6 +195,8 @@
     <ClInclude Include="kml\dom\feature.h" />
     <ClInclude Include="kml\dom\folder.h" />
     <ClInclude Include="kml\dom\geometry.h" />
+    <ClInclude Include="kml\dom\gx_timeprimitive.h" />
+    <ClInclude Include="kml\dom\gx_tour.h" />
     <ClInclude Include="kml\dom\hotspot.h" />
     <ClInclude Include="kml\dom\iconstyle.h" />
     <ClInclude Include="kml\dom\kml.h" />
@@ -223,6 +229,7 @@
     <ClInclude Include="kml\dom\substyle.h" />
     <ClInclude Include="kml\dom\timeprimitive.h" />
     <ClInclude Include="kml\dom\vec2.h" />
+    <ClInclude Include="kml\dom\xal.h" />
     <ClInclude Include="kml\dom\xml_serializer.h" />
     <ClInclude Include="kml\dom\xsd.h" />
     <ClInclude Include="kml\util\unit_test.h" />
