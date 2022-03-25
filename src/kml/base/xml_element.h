@@ -47,7 +47,7 @@ typedef std::shared_ptr<XmlElement> XmlElementPtr;
 class XmlElement : public Referent {
  public:
   // Get the parent XmlElement if any.
-  const std::weak_ptr<XmlElement> GetParent() const {
+  const XmlElement* GetParent() const {
     return parent_;
   }
 
@@ -91,8 +91,8 @@ class XmlElement : public Referent {
   // XmlElement already has a parent or if this XmlElement is in a different
   // XmlFile.
   bool SetParent(const XmlElementPtr& parent) {
-    if (parent_.expired() && parent && InSameXmlFile(parent)) {
-      parent_ = parent;
+    if (!parent_ && parent && InSameXmlFile(parent)) {
+      parent_ = parent.get();
       return true;
     }
     return false;
@@ -100,7 +100,7 @@ class XmlElement : public Referent {
 
  private:
   XmlnsId xmlns_id_;
-  std::weak_ptr<XmlElement> parent_;
+  const XmlElement* parent_;
   const XmlFile* xml_file_;
   LIBKML_DISALLOW_EVIL_CONSTRUCTORS(XmlElement);
 };

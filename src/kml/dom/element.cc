@@ -35,6 +35,7 @@
 
 using kmlbase::Attributes;
 using kmlbase::XmlElement;
+using kmlbase::XmlElementPtr;
 
 namespace kmldom {
 
@@ -140,7 +141,7 @@ void Element::SerializeAttributes(Attributes* attributes) const {
 }
 
 ElementPtr Element::GetParent() const {
-  return AsElement(XmlElement::GetParent().lock());
+  return AsElement(XmlElementPtr(const_cast<XmlElement*>(XmlElement::GetParent())));
 }
 
 void Element::MergeXmlns(const Attributes& xmlns) {
